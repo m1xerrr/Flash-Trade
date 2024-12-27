@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 class TelegramListener:
     SOLANA_CONTRACT_PATTERN = r'\b[1-9A-HJ-NP-Za-km-z]{32,44}\b'
 
-    def __init__(self, channel_username, api_id='2576129', api_hash='0f54c8a4b6ee6cb8025e10b208199873', update_interval=30):
+    def __init__(self, channel_username, api_id='2576129', api_hash='0f54c8a4b6ee6cb8025e10b208199873', update_interval=60):
         self.api_id = api_id
         self.api_hash = api_hash
         self.channel_username = channel_username
