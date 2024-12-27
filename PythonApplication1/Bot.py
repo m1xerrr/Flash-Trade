@@ -11,7 +11,7 @@ from aiogram.fsm.context import FSMContext
 from datetime import datetime
 import asyncio
 
-API_TOKEN = "7611733325:AAGZR_DWPeXzR9axBgzMT-qZO37NCpeH34o"
+API_TOKEN = "7995798682:AAGhVu4qVodVt5bhEGrN_xsiDjYKDxUVHc4"
 
 bot = Bot(API_TOKEN)
 dp = Dispatcher(storage=MemoryStorage())

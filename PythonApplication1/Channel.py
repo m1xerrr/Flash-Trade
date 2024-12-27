@@ -1,8 +1,8 @@
 ﻿import requests
 
-BOT_TOKEN = "7611733325:AAGZR_DWPeXzR9axBgzMT-qZO37NCpeH34o"
+BOT_TOKEN = "7995798682:AAGhVu4qVodVt5bhEGrN_xsiDjYKDxUVHc4"
 
-CHANNEL_ID = "sigmasignals2004"
+CHANNEL_ID = "flashsignals0013"
 
 def send_message(text):
 
