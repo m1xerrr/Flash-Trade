@@ -134,20 +134,8 @@ async def fallback_handler(message: types.Message, state: FSMContext):
     if current_state is None:  
         await message.reply("Unrecognized input. Please use a valid command.")
 
-async def check_addresses():
-    while True:
-        for channel, listener in Listener.active_listeners.items():
-            if listener.addresses:
-                for address_data in listener.addresses:
-                    address = address_data['address']
-                    response = API.perform_swap(address)
-                    print(response)
-                listener.addresses.clear()
-        await asyncio.sleep(10)
-
 async def main():
     await Listener.initialize_listeners()
-    asyncio.create_task(check_addresses())
     await dp.start_polling(bot)
 
 if __name__ == '__main__':
