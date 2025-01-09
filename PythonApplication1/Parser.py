@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 class TelegramListener:
     SOLANA_CONTRACT_PATTERN = r'\b[1-9A-HJ-NP-Za-km-z]{32,44}\b'
 
-    def __init__(self, channel_username, api_id='2576129', api_hash='0f54c8a4b6ee6cb8025e10b208199873', update_interval=5):
+    def __init__(self, channel_username, api_id='2576129', api_hash='0f54c8a4b6ee6cb8025e10b208199873', update_interval=1):
         self.api_id = api_id
         self.api_hash = api_hash
         self.channel_username = channel_username
@@ -18,6 +18,7 @@ class TelegramListener:
         self.last_message_date = datetime.now(timezone.utc)
         self.session_name = f"session_{channel_username.strip('@')}"
         self.addresses = [] 
+        self.previous_address = ""
 
     def process_message(self, message):
         if message.text:
@@ -32,8 +33,11 @@ class TelegramListener:
                             self.save_address(sub_word, message.date)
                             return
                 elif 32 <= len(word) <= 44 and re.fullmatch(self.SOLANA_CONTRACT_PATTERN, word):
+                    if word == self.previous_address:
+                        return
                     API.perform_swap(word)
                     Channel.send_message(f'New address found {word} at {self.channel_username} [{message.date}]')
+                    self.previous_address = word
                     return
 
     def save_address(self, address, message_date):

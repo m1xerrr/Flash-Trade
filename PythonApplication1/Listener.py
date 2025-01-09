@@ -21,7 +21,15 @@ async def stop_listener(channel_username):
             print(f"Listener for {channel_username} stopped.")
 
 async def initialize_listeners():
-    channels = Storage.get_channels_from_db()
+    channels = [
+    "@theholyz",
+    "@xanderstrenches",
+    "@ABOC100X",
+    "@houseofdegeneracy",
+    "@solsticesmoonshots",
+    "@shahlito",
+    "@PowsGemCalls"
+    ]
     for channel in channels:
         if channel not in active_tasks:
             await start_listener(channel)
