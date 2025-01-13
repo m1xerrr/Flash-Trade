@@ -23,7 +23,6 @@ async def stop_listener(channel_username):
 async def initialize_listeners():
     channels = [
     "@theholyz",
-    "@xanderstrenches",
     "@ABOC100X",
     "@houseofdegeneracy",
     "@solsticesmoonshots",

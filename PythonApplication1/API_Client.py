@@ -39,7 +39,7 @@ def get_trade_history():
                 key=lambda trade: trade["created_at"],
                 reverse=False
             )
-            return sorted_trades[-1:]
+            return sorted_trades[-5:]
         else:
             print(f"Error fetching trade history: {response.status_code} - {response.text}")
             return None

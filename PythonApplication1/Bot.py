@@ -42,7 +42,7 @@ async def history_command(message: types.Message):
             f"🔗 *Tx Hash:* `{trade['tx_hash'] if trade['tx_hash'] != '-' else 'N/A'}`\n"
         )
         if not trade["is_success"]:
-            formatted_trade += f"❌ *Error:* _{trade['error']}_\n"
+            formatted_trade += f"❌ *Error:* {trade['error'][:40]}...\n"
 
         formatted_history.append(formatted_trade)
 
@@ -51,38 +51,21 @@ async def history_command(message: types.Message):
 
 @dp.message(Command('channels'))
 async def channels_command(message: types.Message):
-    channels = Storage.get_channels_from_db()
+    channels = [
+    "@theholyz",
+    "@ABOC100X",
+    "@houseofdegeneracy",
+    "@solsticesmoonshots",
+    "@shahlito",
+    "@PowsGemCalls"
+    ]
     if channels:
         channel_list = "\n".join(f"{idx + 1}. {channel}" for idx, channel in enumerate(channels))
         text = f"Channel list:\n{channel_list}"
     else:
         text = "The channel list is empty."
-
-    button = InlineKeyboardButton(text="Remove channel", callback_data="remove_channel")
-    markup = InlineKeyboardMarkup(inline_keyboard=[[button]])
-
-    await message.reply(text, reply_markup=markup)
-
-@dp.callback_query(lambda c: c.data == 'remove_channel')
-async def remove_channel(callback_query: types.CallbackQuery):
-    channels = Storage.get_channels_from_db()
-    if not channels:
-        await bot.send_message(callback_query.from_user.id, "The channel list is empty, nothing to delete.")
-        return
-
-    buttons = [
-        [InlineKeyboardButton(text=channel, callback_data=f"delete_{channel}")]
-        for channel in channels
-    ]
-    markup = InlineKeyboardMarkup(inline_keyboard=buttons)
-    await bot.send_message(callback_query.from_user.id, "Choose a channel to remove:", reply_markup=markup)
-
-@dp.callback_query(lambda c: c.data.startswith('delete_'))
-async def confirm_delete_channel(callback_query: types.CallbackQuery):
-    username = callback_query.data.split('_', 1)[1]
-    Storage.remove_channel_from_db(username)
-    await bot.send_message(callback_query.from_user.id, f"Channel {username} successfully removed.")
-    await Listener.stop_listener(username)
+        
+    await message.reply(text)
 
 @dp.message(Command('settings'))
 async def settings_command(message: types.Message):
