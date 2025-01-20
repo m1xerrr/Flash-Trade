@@ -57,7 +57,13 @@ async def channels_command(message: types.Message):
     "@houseofdegeneracy",
     "@solsticesmoonshots",
     "@shahlito",
-    "@PowsGemCalls"
+    "@PowsGemCalls",
+    "@InDaTrenches",
+    "@ProfitsPlays",
+    "@NarrativeNach",
+    "@gorillacapitalcooks",
+    "@CookersCooks",
+    "@nft_brewery"
     ]
     if channels:
         channel_list = "\n".join(f"{idx + 1}. {channel}" for idx, channel in enumerate(channels))
