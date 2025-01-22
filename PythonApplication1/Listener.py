@@ -33,7 +33,9 @@ async def initialize_listeners():
     "@NarrativeNach",
     "@gorillacapitalcooks",
     "@CookersCooks",
-    "@nft_brewery"
+    "@nft_brewery",
+    "@zusolana",
+    "@constablecalls",
     ]
     for channel in channels:
         if channel not in active_tasks:
