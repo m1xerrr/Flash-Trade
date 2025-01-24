@@ -31,7 +31,6 @@ async def initialize_listeners():
     "@InDaTrenches",
     "@ProfitsPlays",
     "@NarrativeNach",
-    "@gorillacapitalcooks",
     "@CookersCooks",
     "@nft_brewery",
     "@zusolana",

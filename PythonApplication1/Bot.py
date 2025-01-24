@@ -61,7 +61,6 @@ async def channels_command(message: types.Message):
     "@InDaTrenches",
     "@ProfitsPlays",
     "@NarrativeNach",
-    "@gorillacapitalcooks",
     "@CookersCooks",
     "@nft_brewery",
     "@zusolana",
