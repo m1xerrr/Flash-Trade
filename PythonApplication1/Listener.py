@@ -31,7 +31,6 @@ async def initialize_listeners():
     "@ProfitsPlays",
     "@CookersCooks",
     "@nft_brewery",
-    "@zusolana",
     "@constablecalls",
     ]
     for channel in channels:

@@ -61,7 +61,6 @@ async def channels_command(message: types.Message):
     "@ProfitsPlays",
     "@CookersCooks",
     "@nft_brewery",
-    "@zusolana",
     "@constablecalls",
     ]
     if channels:
